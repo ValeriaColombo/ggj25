@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Chaboncito : MonoBehaviour
 {
@@ -102,9 +103,6 @@ public class Chaboncito : MonoBehaviour
             {
                 DropPalito();
             }
-
-            if (!isPlayerOne)
-                Debug.Log(transform.position);
         }
     }
 
@@ -189,5 +187,21 @@ public class Chaboncito : MonoBehaviour
     public void OnPlopBubble()
     {
         DropPalito();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name.Contains("meta"))
+        {
+            Debug.Log("Winner P" + (isPlayerOne ? "1" : "2") + "!!!!!");
+            if (isPlayerOne)
+            {
+                SceneManager.LoadScene("WinP1");
+            }
+            else
+            {
+                SceneManager.LoadScene("WinP2");
+            }
+        }
     }
 }
