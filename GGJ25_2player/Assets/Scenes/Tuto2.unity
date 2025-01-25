@@ -530,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2102542998503172512, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: TopLeftLimit.y
-      value: 4.65
+      value: 4.15
       objectReference: {fileID: 0}
     - target: {fileID: 2102542998503172512, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: BottomRightLimit.x
@@ -546,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401181463850749533, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: TopLeftLimit.y
-      value: 4.65
+      value: 4.15
       objectReference: {fileID: 0}
     - target: {fileID: 2401181463850749533, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: BottomRightLimit.x
@@ -638,7 +638,8 @@ PrefabInstance:
       objectReference: {fileID: 553809704}
     m_RemovedComponents:
     - {fileID: 7794512899697094055, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9103194817385309140, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7431935728749003123, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       insertIndex: -1
