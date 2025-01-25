@@ -1,0 +1,10 @@
+
+/GGJ25_2player/.vs
+GGJ25_2player/.vsconfig
+/GGJ25_2player/Library
+/GGJ25_2player/Logs
+/GGJ25_2player/obj
+*.sln
+/GGJ25_2player/Temp
+/GGJ25_2player/UserSettings
+*.csproj
