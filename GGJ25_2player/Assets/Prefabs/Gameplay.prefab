@@ -954,6 +954,10 @@ PrefabInstance:
       propertyPath: isPlayerOne
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3445492849044967016, guid: 680e38cde7ee540429994cd7cebbdc8a, type: 3}
+      propertyPath: palitoThreshold
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4231435992677405376, guid: 680e38cde7ee540429994cd7cebbdc8a, type: 3}
       propertyPath: m_Name
       value: chaboncito2

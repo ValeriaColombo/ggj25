@@ -10,6 +10,8 @@ public class Tuto2ScreenView : MonoBehaviour
 
     private void Start()
     {
+        Context.Instance.Hello();
+
         player1.GameStarted = true;
         player2.GameStarted = true;
     }
