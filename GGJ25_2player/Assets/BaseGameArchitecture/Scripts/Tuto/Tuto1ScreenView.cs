@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TutoScreenView : MonoBehaviour
+public class Tuto1ScreenView : MonoBehaviour
 {
     public void ContinueToGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Tuto2");
     }
 }
