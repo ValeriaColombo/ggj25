@@ -1,0 +1,163 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Chaboncito : MonoBehaviour
+{
+    [SerializeField] private bool isPlayerOne;
+    [SerializeField] private Transform palito;
+    [SerializeField] private Rigidbody2D palitoRB;
+    [SerializeField] private float speed;
+    [SerializeField] private float palitoThreshold;
+    [SerializeField] private float palitoRotationPerFrame;
+    [SerializeField] private float rotatesAloneIfGreaterThan = 0.5f;
+    [SerializeField] private float palitoInerciaRotationPerFrame = 0.25f;
+    [SerializeField] private Vector2 TopLeftLimit;
+    [SerializeField] private Vector2 BottomRightLimit;
+
+    private float acumHorSpeed = 0;
+    private float palitoY;
+    private bool controlsEnabled;
+    private Vector2 startPostion;
+
+    private void Start()
+    {
+        startPostion = transform.position;
+        palitoY = palito.position.y - transform.position.y;
+        controlsEnabled = true;
+    }
+
+    private void Update()
+    {
+        if (controlsEnabled)
+        {
+            float currentSpeed = Time.deltaTime * speed;
+
+            if (IsMovingUp())
+            {
+                transform.Translate(0, currentSpeed, 0);
+            }
+            else if (IsMovingDown())
+            {
+                transform.Translate(0, -currentSpeed, 0);
+            }
+
+            if (IsMovingLeft())
+            {
+                acumHorSpeed -= currentSpeed;
+                transform.Translate(-currentSpeed, 0, 0);
+            }
+            else if (IsMovingRight())
+            {
+                acumHorSpeed += currentSpeed;
+                transform.Translate(currentSpeed, 0, 0);
+            }
+            else
+            {
+                acumHorSpeed = 0;
+            }
+
+            Vector2 newPos = transform.position;
+            newPos.x = MathF.Min(MathF.Max(TopLeftLimit.x, newPos.x), BottomRightLimit.x);
+            newPos.y = MathF.Min(MathF.Max(BottomRightLimit.y, newPos.y), TopLeftLimit.y);
+            transform.position = newPos;
+
+            palito.position = new Vector3(transform.position.x, transform.position.y + palitoY, 0);
+
+            if (acumHorSpeed > palitoThreshold)
+            {
+                palito.Rotate(0, 0, -palitoRotationPerFrame, Space.Self);
+            }
+            else if (acumHorSpeed < -palitoThreshold)
+            {
+                palito.Rotate(0, 0, palitoRotationPerFrame, Space.Self);
+            }
+            else
+            {
+                if (palito.rotation.eulerAngles.z > 180 && palito.rotation.eulerAngles.z < 359)
+                {
+                    palito.Rotate(0, 0, -palitoInerciaRotationPerFrame, Space.Self);
+                }
+                if (palito.rotation.eulerAngles.z > 1 && palito.rotation.eulerAngles.z < 180)
+                {
+                    palito.Rotate(0, 0, palitoInerciaRotationPerFrame, Space.Self);
+                }
+            }
+    
+            if (Math.Abs(palito.rotation.z) > 0.5f)
+            {
+                DropPalito();
+            }
+
+            if (!isPlayerOne)
+                Debug.Log(transform.position);
+        }
+    }
+
+    private void DropPalito()
+    {
+        palitoRB.velocity = Vector2.zero;
+        StartCoroutine(FailAndRestart());
+    }
+
+    private IEnumerator FailAndRestart()
+    {
+        controlsEnabled = false;
+        yield return new WaitForSeconds(1);
+        transform.position = startPostion;
+        yield return new WaitForEndOfFrame();
+        palitoRB.velocity = Vector2.zero;
+        palito.rotation = Quaternion.identity;
+        acumHorSpeed = 0;
+        controlsEnabled = true;
+    }
+
+    private bool IsMovingRight()
+    {
+        if (isPlayerOne)
+        {
+            return Input.GetKey(KeyCode.D);
+        }
+        else
+        {
+            return Input.GetKey(KeyCode.RightArrow);
+        }
+    }
+
+    private bool IsMovingLeft()
+    {
+        if (isPlayerOne)
+        {
+            return Input.GetKey(KeyCode.A);
+        }
+        else
+        {
+            return Input.GetKey(KeyCode.LeftArrow);
+        }
+    }
+
+    private bool IsMovingDown()
+    {
+        if (isPlayerOne)
+        {
+            return Input.GetKey(KeyCode.S);
+        }
+        else
+        {
+            return Input.GetKey(KeyCode.DownArrow);
+        }
+    }
+
+    private bool IsMovingUp()
+    {
+        if (isPlayerOne)
+        {
+            return Input.GetKey(KeyCode.W);
+        }
+        else
+        {
+            return Input.GetKey(KeyCode.UpArrow);
+        }
+    }
+}
