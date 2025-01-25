@@ -130,11 +130,13 @@ public class Chaboncito : MonoBehaviour
     private IEnumerator FailAndRestart()
     {
         ControlsEnabled = false;
+        palitoRB.bodyType = RigidbodyType2D.Dynamic;
         yield return new WaitForSeconds(1);
         transform.position = startPostion;
         yield return new WaitForEndOfFrame();
         palitoRB.velocity = Vector2.zero;
         palito.rotation = Quaternion.identity;
+        palitoRB.bodyType = RigidbodyType2D.Kinematic;
         acumHorSpeed = 0;
         ControlsEnabled = true;
     }
