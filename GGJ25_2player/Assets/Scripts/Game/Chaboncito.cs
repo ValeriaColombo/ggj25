@@ -17,6 +17,7 @@ public class Chaboncito : MonoBehaviour
     [SerializeField] private float palitoInerciaRotationPerFrame = 0.25f;
     [SerializeField] private Vector2 TopLeftLimit;
     [SerializeField] private Vector2 BottomRightLimit;
+    [SerializeField] private float superpowerMoveShutDownTime = 1;
 
     public float acumHorSpeed = 0;
     private float palitoY;
@@ -33,6 +34,8 @@ public class Chaboncito : MonoBehaviour
         palitoY = palito.position.y - transform.position.y;
     }
 
+    private float lastTImeUsedSuperPower = -1;
+
     private void Update()
     {
         if(!GameStarted)
@@ -43,21 +46,22 @@ public class Chaboncito : MonoBehaviour
         {
             float currentSpeed = Time.deltaTime * speed;
 
-            if(UsesSuperPower())
+            if(!IsInSUperPowerCooldown() && UsesSuperPower())
             {
+                lastTImeUsedSuperPower = Time.time;
                 explosion.SetActive(true);
             }
 
-            if (IsMovingUp())
+            if (!IsInSUperPowerCooldown() && IsMovingUp())
             {
                 transform.Translate(0, currentSpeed, 0);
             }
-            else if (IsMovingDown())
+            else if (!IsInSUperPowerCooldown() && IsMovingDown())
             {
                 transform.Translate(0, -currentSpeed, 0);
             }
 
-            if (IsMovingLeft())
+            if (!IsInSUperPowerCooldown() && IsMovingLeft())
             {
                 if (acumHorSpeed > 0)
                     acumHorSpeed = 0;
@@ -65,7 +69,7 @@ public class Chaboncito : MonoBehaviour
                 acumHorSpeed -= currentSpeed;
                 transform.Translate(-currentSpeed, 0, 0);
             }
-            else if (IsMovingRight())
+            else if (!IsInSUperPowerCooldown() && IsMovingRight())
             {
                 if (acumHorSpeed < 0)
                     acumHorSpeed = 0;
@@ -105,8 +109,6 @@ public class Chaboncito : MonoBehaviour
                 }
             }
 
-            coso = palito.rotation.eulerAngles.z;
-
             if (Math.Abs(palito.rotation.z) > 0.5f)
             {
                 DropPalito();
@@ -114,7 +116,10 @@ public class Chaboncito : MonoBehaviour
         }
     }
 
-    public float coso;
+    private bool IsInSUperPowerCooldown()
+    {
+        return Time.time - lastTImeUsedSuperPower < superpowerMoveShutDownTime;
+    }
 
     private void DropPalito()
     {
