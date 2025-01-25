@@ -185,4 +185,9 @@ public class Chaboncito : MonoBehaviour
             return Input.GetKey(KeyCode.UpArrow);
         }
     }
+
+    public void OnPlopBubble()
+    {
+        DropPalito();
+    }
 }
