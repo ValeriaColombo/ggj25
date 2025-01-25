@@ -6,6 +6,7 @@ using UnityEngine;
 public class Chaboncito : MonoBehaviour
 {
     [SerializeField] private bool isPlayerOne;
+    [SerializeField] private GameObject explosion;
     [SerializeField] private Transform palito;
     [SerializeField] private Rigidbody2D palitoRB;
     [SerializeField] private float speed;
@@ -18,21 +19,33 @@ public class Chaboncito : MonoBehaviour
 
     private float acumHorSpeed = 0;
     private float palitoY;
-    private bool controlsEnabled;
+    private bool ControlsEnabled = false;
     private Vector2 startPostion;
+
+    public bool GameStarted;
 
     private void Start()
     {
+        ControlsEnabled = true;
+        explosion.SetActive(false);
         startPostion = transform.position;
         palitoY = palito.position.y - transform.position.y;
-        controlsEnabled = true;
     }
 
     private void Update()
     {
-        if (controlsEnabled)
+        if(!GameStarted)
+        {
+            palito.position = new Vector3(transform.position.x, transform.position.y + palitoY, 0);
+        }
+        else if (ControlsEnabled)
         {
             float currentSpeed = Time.deltaTime * speed;
+
+            if(UsesSuperPower())
+            {
+                explosion.SetActive(true);
+            }
 
             if (IsMovingUp())
             {
@@ -103,16 +116,28 @@ public class Chaboncito : MonoBehaviour
 
     private IEnumerator FailAndRestart()
     {
-        controlsEnabled = false;
+        ControlsEnabled = false;
         yield return new WaitForSeconds(1);
         transform.position = startPostion;
         yield return new WaitForEndOfFrame();
         palitoRB.velocity = Vector2.zero;
         palito.rotation = Quaternion.identity;
         acumHorSpeed = 0;
-        controlsEnabled = true;
+        ControlsEnabled = true;
     }
 
+    private bool UsesSuperPower()
+    {
+        if (isPlayerOne)
+        {
+            return Input.GetKeyDown(KeyCode.E);
+        }
+        else
+        {
+            return Input.GetKeyDown(KeyCode.RightShift);
+        }
+    }
+    
     private bool IsMovingRight()
     {
         if (isPlayerOne)

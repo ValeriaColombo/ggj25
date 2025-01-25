@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Tuto1ScreenView : MonoBehaviour
 {
+    [SerializeField] private Chaboncito player1;
+    [SerializeField] private Chaboncito player2;
+
+    private void Start()
+    {
+        player1.GameStarted = true;
+        player2.GameStarted = true;
+    }
+
     public void ContinueToGame()
     {
         SceneManager.LoadScene("Tuto2");
