@@ -18,7 +18,7 @@ public class Chaboncito : MonoBehaviour
     [SerializeField] private Vector2 TopLeftLimit;
     [SerializeField] private Vector2 BottomRightLimit;
 
-    private float acumHorSpeed = 0;
+    public float acumHorSpeed = 0;
     private float palitoY;
     private bool ControlsEnabled = false;
     private Vector2 startPostion;
@@ -59,11 +59,17 @@ public class Chaboncito : MonoBehaviour
 
             if (IsMovingLeft())
             {
+                if (acumHorSpeed > 0)
+                    acumHorSpeed = 0;
+
                 acumHorSpeed -= currentSpeed;
                 transform.Translate(-currentSpeed, 0, 0);
             }
             else if (IsMovingRight())
             {
+                if (acumHorSpeed < 0)
+                    acumHorSpeed = 0;
+
                 acumHorSpeed += currentSpeed;
                 transform.Translate(currentSpeed, 0, 0);
             }
@@ -98,13 +104,17 @@ public class Chaboncito : MonoBehaviour
                     palito.Rotate(0, 0, palitoInerciaRotationPerFrame, Space.Self);
                 }
             }
-    
+
+            coso = palito.rotation.eulerAngles.z;
+
             if (Math.Abs(palito.rotation.z) > 0.5f)
             {
                 DropPalito();
             }
         }
     }
+
+    public float coso;
 
     private void DropPalito()
     {

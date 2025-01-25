@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3445492849044967016}
   - component: {fileID: 3469719657255446581}
   - component: {fileID: 5988387061255257396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: chaboncito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,9 @@ MonoBehaviour:
   palitoInerciaRotationPerFrame: 0.1
   TopLeftLimit: {x: 0, y: 0}
   BottomRightLimit: {x: 0, y: 0}
+  acumHorSpeed: 0
   GameStarted: 0
+  coso: 0
 --- !u!61 &3469719657255446581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ GameObject:
   - component: {fileID: 2344455146407495164}
   - component: {fileID: 4892631199348050091}
   - component: {fileID: 6062233250665140618}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
