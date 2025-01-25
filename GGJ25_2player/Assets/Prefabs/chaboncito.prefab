@@ -106,9 +106,9 @@ MonoBehaviour:
   palitoRB: {fileID: 0}
   speed: 2
   palitoThreshold: 0.4
-  palitoRotationPerFrame: 0.4
+  palitoRotationPerFrame: 0.2
   rotatesAloneIfGreaterThan: 30
-  palitoInerciaRotationPerFrame: 0.2
+  palitoInerciaRotationPerFrame: 0.1
   TopLeftLimit: {x: 0, y: 0}
   BottomRightLimit: {x: 0, y: 0}
   GameStarted: 0
