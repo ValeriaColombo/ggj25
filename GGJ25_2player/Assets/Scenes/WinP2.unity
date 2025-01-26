@@ -397,6 +397,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1303462130}
     m_Modifications:
+    - target: {fileID: 973026099988410357, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_text
+      value: jugar de nuevo
+      objectReference: {fileID: 0}
+    - target: {fileID: 973026099988410357, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2272350192389678185, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
       propertyPath: m_Name
       value: WinScreen
@@ -481,9 +489,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4783043621365440916, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783043621365440916, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5c8f08eb5f99c9940b24242ce67b5fec, type: 3}
+    - target: {fileID: 4783043621365440916, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783043621365440916, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783043621365440916, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320751266896210131, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 281.4257
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320751266896210131, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 136.2158
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320751266896210131, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320751266896210131, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -179.28
+      objectReference: {fileID: 0}
     - target: {fileID: 8824813325869483978, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
       propertyPath: m_text
-      value: GANADOR PLAYER 2
+      value: Gana el jugador 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824813325869483978, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      propertyPath: m_fontStyle
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8824813325869483978, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
       propertyPath: m_fontColor.b
@@ -504,8 +552,52 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5036409409650655832, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6417926964202614540}
+    - targetCorrespondingSourceObject: {fileID: 7573730701135718943, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6417926964202614539}
   m_SourcePrefab: {fileID: 100100000, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+--- !u!1 &6417926964202614537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7573730701135718943, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+  m_PrefabInstance: {fileID: 6417926964202614536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6417926964202614538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5036409409650655832, guid: acaee578b5e43f44aa63b8f33e158e47, type: 3}
+  m_PrefabInstance: {fileID: 6417926964202614536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6417926964202614539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417926964202614537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e6345810f3b9a48bde4696820e65b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TID: play_again
+  parameters: []
+--- !u!114 &6417926964202614540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417926964202614538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e6345810f3b9a48bde4696820e65b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TID: win2
+  parameters: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
