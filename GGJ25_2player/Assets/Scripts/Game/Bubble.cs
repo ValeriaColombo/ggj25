@@ -29,41 +29,42 @@ public class Bubble : MonoBehaviour
             if (Time.time - lastCollisionTime > 0.2f)
             {
                 animator.enabled = true;
+                StopAllCoroutines();
                 StartCoroutine(ComeBackToOriginalPosition());
             }
         }
     }
 
+    public float speedComeBack = 0.01f;
     private IEnumerator ComeBackToOriginalPosition()
     {
-        var speed = 0.025f;
         Vector3 currentPosition = transform.localPosition;
         while (transform.localPosition != originalPosition)
         {
-            if (Mathf.Abs(currentPosition.x - originalPosition.x) < speed)
+            if (Mathf.Abs(currentPosition.x - originalPosition.x) < speedComeBack * Time.fixedDeltaTime)
             {
                 currentPosition.x = originalPosition.x;
             }
             else if (currentPosition.x > originalPosition.x)
             {
-                currentPosition.x -= speed * Time.fixedDeltaTime;
+                currentPosition.x -= speedComeBack * Time.fixedDeltaTime;
             }
             else if (currentPosition.x < originalPosition.x)
             {
-                currentPosition.x += speed * Time.fixedDeltaTime;
+                currentPosition.x += speedComeBack * Time.fixedDeltaTime;
             }
 
-            if (Mathf.Abs(currentPosition.y - originalPosition.y) < speed)
+            if (Mathf.Abs(currentPosition.y - originalPosition.y) < speedComeBack * Time.fixedDeltaTime)
             {
                 currentPosition.y = originalPosition.y;
             }
             else if (currentPosition.y > originalPosition.y)
             {
-                currentPosition.y -= speed * Time.fixedDeltaTime;
+                currentPosition.y -= speedComeBack * Time.fixedDeltaTime;
             }
             else if (currentPosition.y < originalPosition.y)
             {
-                currentPosition.y += speed * Time.fixedDeltaTime;
+                currentPosition.y += speedComeBack * Time.fixedDeltaTime;
             }
 
             transform.localPosition = currentPosition;
