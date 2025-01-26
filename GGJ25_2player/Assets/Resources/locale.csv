@@ -12,6 +12,6 @@ tuto1,Llega al otro lado antes que tu oponente[.] ¡pero cuidado! no dejés caer
 tuto2,También podés soplar las burbujas cercanas para que no te toquen.[]Prueba mover las burbujas cercanas.,You can also blow nearby bubbles to keep them from touching you.[]Try moving the nearby bubbles.
 listo,Listo,Ready
 shif,Shift derecho,Right shift
-win1,Gana el jugadaor 1,Player 1 wins
-win2,Gana el jugadaor 2,Player 2 wins
+win1,Gana el jugador 1,Player 1 wins
+win2,Gana el jugador 2,Player 2 wins
 nombre_juego,Equilibruble Deathtomatcho,Equilibruble Deathtomatcho

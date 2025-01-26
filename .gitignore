@@ -8,3 +8,4 @@ GGJ25_2player/.vsconfig
 /GGJ25_2player/Temp
 /GGJ25_2player/UserSettings
 *.csproj
+/build_web
