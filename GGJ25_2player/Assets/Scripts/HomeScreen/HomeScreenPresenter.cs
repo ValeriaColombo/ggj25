@@ -12,7 +12,7 @@ public class HomeScreenPresenter : ClassWithContext
     {
         Context.Instance.Hello();
         this.view = view;
-        //MySoundManager.PlayMusicLoop("Sound/music00");
+        MySoundManager.PlayMusicLoop("Sound/musicMenu");
     }
 
     public void GoToPlayGame(string gameId)

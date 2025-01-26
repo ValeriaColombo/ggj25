@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Tuto1ScreenView : MonoBehaviour
+public class Tuto1ScreenView : MonoBehaviourWithContext
 {
     [SerializeField] private Chaboncito player1;
     [SerializeField] private Chaboncito player2;
@@ -11,7 +11,7 @@ public class Tuto1ScreenView : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
-        Context.Instance.Hello();
+        MySoundManager.PlayMusicLoop("Sound/musicMenu");
 
         player1.GameStarted = true;
         player2.GameStarted = true;

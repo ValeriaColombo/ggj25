@@ -10,8 +10,6 @@ public class Game1Presenter : GameScreenPresenter
     {
         this.gameplay = gameplay;
         this.gameplay.OnFinishGame.AddListener(OnGameOver);
-
-        //MySoundManager.PlayMusicLoop("Sound/music01");
     }
 
     private void OnGameOver(int points)

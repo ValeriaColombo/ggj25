@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Game : MonoBehaviour
+public class Game : MonoBehaviourWithContext
 {
     [SerializeField] private Chaboncito player1;
     [SerializeField] private Chaboncito player2;
@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     private void Awake()
     {        
         OnFinishGame = new UnityEvent<int>();
+        MySoundManager.PlayMusicLoop("Sound/musicGame");
     }
 
     private void Start()
