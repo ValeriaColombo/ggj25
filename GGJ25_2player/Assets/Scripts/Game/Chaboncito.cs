@@ -18,6 +18,8 @@ public class Chaboncito : MonoBehaviour
     [SerializeField] private Vector2 TopLeftLimit;
     [SerializeField] private Vector2 BottomRightLimit;
     [SerializeField] private float superpowerMoveShutDownTime = 1;
+    [SerializeField] private Transform leg1;
+    [SerializeField] private Transform leg2;
 
     public float acumHorSpeed = 0;
     private float palitoY;
@@ -38,13 +40,14 @@ public class Chaboncito : MonoBehaviour
 
     private void Update()
     {
-        if(!GameStarted)
+        if (!GameStarted)
         {
             palito.position = new Vector3(transform.position.x, transform.position.y + palitoY, 0);
         }
         else if (ControlsEnabled)
         {
             float currentSpeed = Time.deltaTime * speed;
+            bool isMoving = false;
 
             if(!IsInSUperPowerCooldown() && UsesSuperPower())
             {
@@ -55,10 +58,12 @@ public class Chaboncito : MonoBehaviour
             if (!IsInSUperPowerCooldown() && IsMovingUp())
             {
                 transform.Translate(0, currentSpeed, 0);
+                isMoving = true;
             }
             else if (!IsInSUperPowerCooldown() && IsMovingDown())
             {
                 transform.Translate(0, -currentSpeed, 0);
+                isMoving = true;
             }
 
             if (!IsInSUperPowerCooldown() && IsMovingLeft())
@@ -68,6 +73,7 @@ public class Chaboncito : MonoBehaviour
 
                 acumHorSpeed -= currentSpeed;
                 transform.Translate(-currentSpeed, 0, 0);
+                isMoving = true;
             }
             else if (!IsInSUperPowerCooldown() && IsMovingRight())
             {
@@ -76,6 +82,7 @@ public class Chaboncito : MonoBehaviour
 
                 acumHorSpeed += currentSpeed;
                 transform.Translate(currentSpeed, 0, 0);
+                isMoving = true;
             }
             else
             {
@@ -112,6 +119,12 @@ public class Chaboncito : MonoBehaviour
             if (Math.Abs(palito.rotation.z) > 0.5f)
             {
                 DropPalito();
+            }
+
+            if(isMoving)
+            {
+                leg1.Rotate(new Vector3(0, 0, 1), -500 * Time.fixedDeltaTime, Space.World);
+                leg2.Rotate(new Vector3(0, 0, 1), -500 * Time.fixedDeltaTime, Space.World);
             }
         }
     }

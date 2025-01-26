@@ -263,8 +263,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285196495
-  m_fontColor: {r: 0.8136226, g: 0.90943396, b: 0.41696683, a: 1}
+    rgba: 4287430830
+  m_fontColor: {r: 0.6830188, g: 0, b: 0.5548023, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -397,8 +397,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285196495
-  m_fontColor: {r: 0.8136226, g: 0.90943396, b: 0.41696683, a: 1}
+    rgba: 4287430830
+  m_fontColor: {r: 0.6830188, g: 0, b: 0.5548023, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -804,8 +804,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285196495
-  m_fontColor: {r: 0.8136226, g: 0.90943396, b: 0.41696683, a: 1}
+    rgba: 4287430830
+  m_fontColor: {r: 0.6830188, g: 0, b: 0.5548023, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1146,8 +1146,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285196495
-  m_fontColor: {r: 0.8136226, g: 0.90943396, b: 0.41696683, a: 1}
+    rgba: 4287430830
+  m_fontColor: {r: 0.6830188, g: 0, b: 0.5548023, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1238,9 +1238,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1584135702452479693, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.27
+      objectReference: {fileID: 0}
     - target: {fileID: 3043307414196486937, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: m_Name
       value: Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416553753843526796, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.27
       objectReference: {fileID: 0}
     - target: {fileID: 7431935728749003123, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1281,6 +1289,10 @@ PrefabInstance:
     - target: {fileID: 7431935728749003123, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103194817385309140, guid: cdddaf95823f3b44e8c75747c4fc4ee1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,6 +10,7 @@ public class Tuto2ScreenView : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60;
         Context.Instance.Hello();
 
         player1.GameStarted = true;
